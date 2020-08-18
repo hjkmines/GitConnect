@@ -1,0 +1,3 @@
+{
+    "mongoURI": "mongodb+srv://tkim123:123@cluster0.2urup.mongodb.net/gitlio?retryWrites=true&w=majority"
+}
