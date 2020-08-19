@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router(); 
-const { check, validationResult } = require('express-validator/check')
+const { check, validationResult } = require('express-validator/check'); 
+//bring in users body 
+const User = require('../../models/User'); 
+const gravatar = require('gravatar');
+const bcrypt = require('bcryptjs'); 
 
 //ROUTE: POST api/users 
 //DETAILS: Registers the user  
@@ -10,7 +14,7 @@ router.post('/', [
     check('name', 'Please enter a name').not().isEmpty(), 
     check('email', 'Email is required').isEmail(), 
     check('password', 'Enter a password that is 8 or more characters').isLength({min: 8})
-], (req, res) => {
+], async (req, res) => {
     //catch the errors and respond with a message with a 400 client bad request, else return normal response. 
     const errors = validationResult(req); 
 
@@ -18,7 +22,43 @@ router.post('/', [
         return res.status(400).json({ errors: errors.array() }); 
     }
 
-    res.send('User Route'); 
+    const { name, email, password } = req.body; 
+
+    try {
+        let user = await User.findOne({ email }); 
+
+        if(user) {
+            res.status(400).json({ errors: [{msg: 'User already exists'}] }); 
+        }
+
+        //grabs user avatar 
+        const avatar = gravatar.url(email, {
+            s: '250', 
+            r: 'pg', 
+            d: 'mm'
+        })
+
+        //create a new user 
+        user = new User({
+            name, 
+            email, 
+            avatar, 
+            password
+        }); 
+
+        //Hashing the newly created password 
+        const salt = await bcrypt.genSalt(10); //adds a default recommendation of 10 rounds 
+
+        user.password = await bcrypt.hash(password, salt); 
+        //save to database 
+        await user.save(); 
+
+        res.send('User Registered'); 
+    } catch(err) {
+        console.error(err.message); 
+        res.status(500).send('Server error'); 
+    }
+
 });
 
 module.exports = router; 
