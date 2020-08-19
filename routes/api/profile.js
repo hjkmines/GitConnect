@@ -31,13 +31,28 @@ router.get('/me', auth, async (req, res) => {
 //Details: Create or update user profile  
 //Access: Private 
 router.post('/', [ auth, [
-    check('status', 'Status is required').not().isEmpty(), check('skills', 'Skills is required').not().isEmpty()
+    check('status', 'Status is required').not().isEmpty(), 
+    check('skills', 'Skills is required').not().isEmpty()
 ] ],
 async (req, res) => {
     const errors = validationResult(req); 
     if(!errors.isEmpty()) {
         return res.status(400).json({errors: errors.array()}); 
     }
+
+    const {
+        company, 
+        website, 
+        location, 
+        bio, 
+        status, 
+        githubusername, 
+        skills, 
+        linkedin,
+        youtube, 
+        medium, 
+        twitter 
+    } = req.body; 
 })
 
 module.exports = router; 
