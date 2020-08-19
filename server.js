@@ -5,6 +5,12 @@ const app = express();
 //Connects to the database 
 connectDB(); 
 
+//Initialize the middlewares 
+//automatically grabs the data from the req.body (client)
+app.use(express.json({extended: false})); 
+
+
+//Tester, will need to remove shortly 
 app.get('/', (req, res) => res.send('Hello!'));
 
 //Define routes for users, auth, profile, and posts
