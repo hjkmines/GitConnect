@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router(); 
-const { check, validationResult } = require('express-validator/check'); 
+const { check, validationResult } = require('express-validator'); 
 //bring in users body 
 const User = require('../../models/User'); 
 const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs'); 
+const jwt = require('jsonwebtoken')
+const config = require('config')
 
 //ROUTE: POST api/users 
 //DETAILS: Registers the user  
@@ -28,10 +30,10 @@ router.post('/', [
         let user = await User.findOne({ email }); 
 
         if(user) {
-            res.status(400).json({ errors: [{msg: 'User already exists'}] }); 
+            return res.status(400).json({ errors: [{msg: 'User already exists'}] }); 
         }
 
-        //grabs user avatar 
+        //grabs user avatar if photo exists, otherwise use dfault photo
         const avatar = gravatar.url(email, {
             s: '250', 
             r: 'pg', 
@@ -49,11 +51,27 @@ router.post('/', [
         //Hashing the newly created password 
         const salt = await bcrypt.genSalt(10); //adds a default recommendation of 10 rounds 
 
-        user.password = await bcrypt.hash(password, salt); 
+        user.password = await bcrypt.hash(password, salt); //brings back a promise 
         //save to database 
-        await user.save(); 
+        await user.save(); //brings back a promise 
 
-        res.send('User Registered'); 
+        //create payload 
+        const payload = {
+            user: {
+                id: user.id
+            }
+        }
+
+        jwt.sign(
+            payload, 
+            config.get('jwtSecret'), 
+            { expiresIn: 360000 }, 
+            (err, token) => {
+            if(err) throw err; 
+            res.json({token}); 
+         }
+        ); 
+
     } catch(err) {
         console.error(err.message); 
         res.status(500).send('Server error'); 
