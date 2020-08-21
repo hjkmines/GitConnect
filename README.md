@@ -1,5 +1,5 @@
 # GitConnect
-> Browse all your favorite media content all in one place. 
+> Network with developers, share your experience, skills, and projects.  
 
 ## Table of contents
 * [General info](#general-info)
