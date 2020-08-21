@@ -5,8 +5,8 @@ const { check, validationResult } = require('express-validator');
 const User = require('../../models/User'); 
 const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs'); 
-const jwt = require('jsonwebtoken')
-const config = require('config')
+const jwt = require('jsonwebtoken'); 
+const config = require('config'); 
 
 //ROUTE: POST api/users 
 //DETAILS: Registers the user  
@@ -33,7 +33,7 @@ router.post('/', [
             return res.status(400).json({ errors: [{msg: 'User already exists'}] }); 
         }
 
-        //grabs user avatar if photo exists, otherwise use dfault photo
+        //grabs user avatar if photo exists, otherwise use default photo
         const avatar = gravatar.url(email, {
             s: '250', 
             r: 'pg', 
