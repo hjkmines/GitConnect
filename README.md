@@ -24,7 +24,7 @@ Welcome to GitConnect.
 * Node.js - version 14.6.0
 * Express - version 4.17.1
 * Gravatar - version 1.8.1
-* JSONWebToken - version 8.5.1
+* JWT - version 8.5.1
 * Mongoose - version 5.10.0
 * Request - version 2.88.2
 
