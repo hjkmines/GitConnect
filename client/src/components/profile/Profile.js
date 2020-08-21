@@ -12,7 +12,7 @@ const Profile = ({ getProfileById, profile: { profile, loading }, auth, match })
 
     return (
         <div>
-            
+            View
         </div>
     )
 }
