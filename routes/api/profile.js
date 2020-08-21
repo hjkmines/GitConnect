@@ -89,7 +89,7 @@ async (req, res) => {
         //Create a new profile 
         profile = new Profile(profileFields); 
         
-        await Profile.save(); 
+        await profile.save(); 
         res.json(profile); 
     } catch(err) {
         console.error(err.message); 
