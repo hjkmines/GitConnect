@@ -13,7 +13,7 @@
 ## General info
 GitConnect is a social media application connecting users to a network of developers alike. This is a unique site allowing incoming developers to showcase their projects, experience, and talents to other developers and managers. 
 
-Welcome to GitConnect. 
+<div align="center">Welcome to GitConnect. </div>
 
 <div align="center">
 <kbd>
