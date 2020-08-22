@@ -114,7 +114,7 @@ const ProfileItem = ({ profile: {
 Project is: finished with option to expand functionality and DRY out code.
 
 ## Inspiration
-The inspiration for GitConnect came when I realized there was a need for a network site for developers that are looking into enter the technology industry. This web application allows users that are interested in showcasing their projects and experience to a group of developers!
+The inspiration for GitConnect came when I realized there was a need for a network site for developers that are looking to enter the technology industry. This web application allows users to showcase their projects and experience to a group of developers alike!
 
 ## Contact
 Created by [Tony Kim](https://www.linkedin.com/in/hyung-kim/) 
