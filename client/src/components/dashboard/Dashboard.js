@@ -5,8 +5,7 @@ import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner'; 
 import { getCurrentProfile } from '../../actions/profile'; 
 import DashboardAction from './DashboardAction'; 
-// import Experience from './Experience'; 
-// import Education from './Education'; 
+
 import { LOGIN_FAIL } from '../../actions/types';
 
 const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, loading } }) => {
