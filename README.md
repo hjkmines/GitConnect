@@ -3,6 +3,7 @@
 
 ## Table of contents
 * [General info](#general-info)
+* [Project Video](#project-video)
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Features](#features)
@@ -11,7 +12,7 @@
 * [License](#license)
 
 ## General info
-GitConnect is a social media application connecting users to a network of developers alike. This is a unique site allowing incoming developers to showcase their projects, experience, and talents to other developers and managers. 
+GitConnect is a social media application connecting users to a network of developers alike. This is a unique site allowing incoming developers to showcase their projects, experience, and talents to other developers and managers.  
 
 <div align="center">Welcome to GitConnect. </div>
 <br/>
@@ -27,6 +28,9 @@ GitConnect is a social media application connecting users to a network of develo
 <img src="./profilepage.PNG">
 </kbd>
 </div>
+
+## Project Video
+[Click to view](https://youtu.be/A3xE9jcXT8s)
 
 ## Technologies
 ### Backend Development 
