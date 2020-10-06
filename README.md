@@ -3,6 +3,7 @@
 
 ## Table of contents
 * [General info](#general-info)
+* [Project Link](#project-link)
 * [Project Video](#project-video)
 * [Technologies](#technologies)
 * [Setup](#setup)
@@ -28,6 +29,9 @@ GitConnect is a social media application connecting users to a network of develo
 <img src="./profilepage.PNG">
 </kbd>
 </div>
+
+## Project Link 
+[Click to view](https://gitconnect-app.herokuapp.com/)
 
 ## Project Video
 [Click to view](https://youtu.be/A3xE9jcXT8s)
